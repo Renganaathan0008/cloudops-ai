@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+
+# Node
+node_modules/
+dist/
+.vite/
+
+# Env & secrets
+.env
+.env.*
+!.env.example
+
+# IDE / OS
+.vscode/
+.idea/
+Thumbs.db
+
+# ML artifacts
+ml/models/*.joblib
+ml/data/*.parquet
+ml/data/*.csv
