@@ -7,7 +7,7 @@ class Settings(BaseSettings):
     app_name: str = "CloudOps AI Backend"
     environment: str = "development"
 
-    database_url: str = "postgresql://cloudops:cloudops@localhost:5432/cloudops"
+    database_url: str = "postgresql+psycopg2://cloudops@localhost:5432/cloudops"
 
     jwt_secret_key: str = "change-me-in-env"
     jwt_algorithm: str = "HS256"
