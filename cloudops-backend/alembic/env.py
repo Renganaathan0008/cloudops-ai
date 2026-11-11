@@ -14,7 +14,8 @@ if config.config_file_name is not None:
 
 # ConfigParser treats percent signs as interpolation tokens. Database URLs may
 # contain percent-encoded credentials, so escape them only in Alembic's config.
-config.set_main_option("sqlalchemy.url", settings.database_url.replace("%", "%%"))
+database_url = settings.sqlalchemy_database_url
+config.set_main_option("sqlalchemy.url", database_url.replace("%", "%%"))
 
 target_metadata = models.Base.metadata
 
@@ -23,7 +24,7 @@ def run_migrations_offline() -> None:
     """Generate migration SQL without opening a database connection."""
 
     context.configure(
-        url=settings.database_url,
+        url=database_url,
         target_metadata=target_metadata,
         literal_binds=True,
         dialect_opts={"paramstyle": "named"},
